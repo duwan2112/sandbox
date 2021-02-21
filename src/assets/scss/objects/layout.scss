@@ -1,0 +1,57 @@
+.container {
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    max-width: 1630px;
+  }
+}
+
+.container__wrap {
+  @include directify($directions) {
+    #{directed('padding-left')}: 0px;
+  }
+
+  padding-top: 100px;
+  min-height: 100vh;
+  transition: padding-left 0.3s;
+  overflow: hidden;
+
+  @include themify($themes) {
+    background: themed("colorBackgroundBody");
+  }
+
+  @media screen and (min-width: 576px) {
+    @include directify($directions) {
+      #{directed('padding-left')}: 180px;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    padding-top: 100px;
+  }
+}
+
+.layout {
+  &.layout--collapse {
+    & + .container__wrap {
+      @include directify($directions) {
+        #{directed('padding-left')}: 0px;
+      }
+
+      @media screen and (min-width: 576px) {
+        @include directify($directions) {
+          #{directed('padding-left')}: 60px;
+        }
+      }
+    }
+  }
+
+  &.layout--top-navigation {
+    & + .container__wrap {
+      @media screen and (min-width: 576px) {
+        @include directify($directions) {
+          #{directed('padding-left')}: 0px;
+        }
+      }
+    }
+  }
+}

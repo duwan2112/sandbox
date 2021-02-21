@@ -1,0 +1,76 @@
+.step__sticky .MuiStepper-root {
+  background: transparent;
+  padding: 0 0 2rem 0;
+  width: 70%;
+  margin: 0 auto;
+  @media screen and (max-width: 568px) {
+    width: 100%;
+  }
+}
+
+.step__sticky {
+  position: relative;
+  overflow-x: auto;
+  z-index: 1000;
+}
+.active__sticky {
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  overflow: auto;
+  @include themify($themes) {
+    background: themed("colorBackground");
+  }
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.active__sticky .MuiStepper-root {
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+.step-color {
+  div {
+    background: #ccc;
+    z-index: 1;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.activeStep {
+  div {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    @include themify($themes) {
+      background: themed("colorStepper");
+    }
+  }
+}
+
+.MuiStep-root {
+  .MuiStepConnector-line {
+    background: #eaeaf0;
+    margin-top: 11px;
+    top: 25px;
+  }
+  .MuiStepConnector-completed,
+  .MuiStepConnector-active {
+    span {
+      @include themify($themes) {
+        border: 2px solid themed("colorStepper");
+        background: themed("colorStepper");
+      }
+    }
+  }
+  .Mui-disabled {
+    .MuiStepConnector-line {
+      border: 2px solid #eaeaf0;
+
+      top: 25px;
+    }
+  }
+}
